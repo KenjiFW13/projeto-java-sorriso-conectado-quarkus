@@ -10,7 +10,7 @@ public class FuncionarioTdbBO {
     FuncionarioTdbDao funcionarioTdbDao;
 
     // Inserir
-    public void InserirBO(FuncionarioTdb funcionarioTdb) throws SQLException, ClassNotFoundException {
+    public void inserirBO(FuncionarioTdb funcionarioTdb) throws SQLException, ClassNotFoundException {
         FuncionarioTdbDao funcionarioTdbDAO = new FuncionarioTdbDao();
         funcionarioTdbDAO.inserir(funcionarioTdb);
     }

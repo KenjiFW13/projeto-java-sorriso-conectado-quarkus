@@ -10,7 +10,7 @@ public class ClinicaEmpresaBO {
     ClinicaEmpresaDao clinicaEmpresaDao;
 
     // Inserir
-    public void InserirBo(ClinicaEmpresa clinicaEmpresa) throws SQLException, ClassNotFoundException {
+    public void inserirBo(ClinicaEmpresa clinicaEmpresa) throws SQLException, ClassNotFoundException {
         ClinicaEmpresaDao clinicaEmpresaDAO = new ClinicaEmpresaDao();
         clinicaEmpresaDAO.inserir(clinicaEmpresa);
     }

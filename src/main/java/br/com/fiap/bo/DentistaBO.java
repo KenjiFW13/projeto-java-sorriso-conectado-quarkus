@@ -10,7 +10,7 @@ public class DentistaBO {
     DentistaDao dentistaDao;
 
     // Inserir
-    public void InserirBO(Dentista dentista) throws SQLException, ClassNotFoundException {
+    public void inserirBO(Dentista dentista) throws SQLException, ClassNotFoundException {
         DentistaDao dentistaDAO = new DentistaDao();
         dentistaDAO.inserir(dentista);
     }
