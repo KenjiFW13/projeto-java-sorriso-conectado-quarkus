@@ -34,4 +34,13 @@ public class BeneficiarioResource {
         beneficiarioBO.deletarBO(codigo);
         return Response.ok().build();
     }
+
+    // Update
+    @PUT
+    @Path("/{codigo}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response atualizarRs(Beneficiario beneficiario, @PathParam("codigo") int codigo) throws SQLException, ClassNotFoundException {
+        beneficiarioBO.atualizarBO(beneficiario);
+        return Response.ok().build();
+    }
 }
