@@ -1,7 +1,6 @@
 package br.com.fiap.bo;
 
 import br.com.fiap.dao.VoluntarioDao;
-import br.com.fiap.entities.Beneficiario;
 import br.com.fiap.entities.Voluntario;
 
 import java.sql.SQLException;
