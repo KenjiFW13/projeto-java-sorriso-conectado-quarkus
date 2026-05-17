@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class DentistaBO {
 
-    DentistaDao dentistaDao;
+    static DentistaDao dentistaDao;
 
     // Inserir
     public void inserirBO(Dentista dentista) throws SQLException, ClassNotFoundException {
@@ -17,25 +17,25 @@ public class DentistaBO {
     }
 
     // Deletar
-    public void deletarBO(int codigo) throws SQLException, ClassNotFoundException {
+    public static void deletarBO(int codigo) throws SQLException, ClassNotFoundException {
         DentistaDao dentistaDAO = new DentistaDao();
         dentistaDao.deletar(codigo);
     }
 
     // Update
-    public void atualizarBO(Dentista dentista) throws SQLException, ClassNotFoundException {
+    public static void atualizarBO(Dentista dentista) throws SQLException, ClassNotFoundException {
         DentistaDao dentistaDAO = new DentistaDao();
         dentistaDao.atualizar(dentista);
     }
 
     // Select
-    public ArrayList<Dentista> selecionarBO() throws SQLException, ClassNotFoundException {
+    public static ArrayList<Dentista> selecionarBO() throws SQLException, ClassNotFoundException {
         dentistaDao = new DentistaDao();
         return (ArrayList<Dentista>) dentistaDao.selecionar();
     }
 
     // Select / Código
-    public Dentista selecionarPorCodigoBo(int codigo) throws SQLException, ClassNotFoundException {
+    public static Dentista selecionarPorCodigoBo(int codigo) throws SQLException, ClassNotFoundException {
         DentistaDao dentistaDAO = new DentistaDao();
         return dentistaDao.selecionarPorCodigo(codigo);
     }
