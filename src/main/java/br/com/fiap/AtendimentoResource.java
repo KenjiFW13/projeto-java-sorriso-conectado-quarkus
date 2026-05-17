@@ -46,7 +46,7 @@ public class AtendimentoResource {
 
     // DefinirPrioridade
     @PUT
-    @Path("/{codigo}")
+    @Path("/{codigo}/prioridade")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response definirPrioridadeRs(Atendimento atendimento, @PathParam("codigo") int codigo) throws SQLException, ClassNotFoundException {
         atendimentoBO.DefinirPrioridadeBo(atendimento);
@@ -54,10 +54,17 @@ public class AtendimentoResource {
     }
 
     @PUT
-    @Path("/{codigo}")
+    @Path("/{codigo}/observacoes")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response atualizarObservacoesRs(Atendimento atendimento, @PathParam("codigo") int codigo) throws SQLException, ClassNotFoundException {
         atendimentoBO.AtualizarObservacoesBo(atendimento);
         return Response.ok().build();
+    }
+
+    @GET
+    @Path("/{codigo}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Atendimento selecionarPorCodigoRs(@PathParam("codigo") int codigo) throws SQLException, ClassNotFoundException {
+        return (Atendimento) atendimentoBO.selecionarPorCodigo(codigo);
     }
 }
