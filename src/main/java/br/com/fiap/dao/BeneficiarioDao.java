@@ -46,15 +46,17 @@ public class BeneficiarioDao {
     // UpDate
     public String atualizar(Beneficiario beneficiario) throws SQLException {
         PreparedStatement stmt = minhaConexao.prepareStatement
-                ("Update T_TDB_BENEFICIARIO set NOME_BENEFICIARIO =?, CPF_BENEFICIARIO =?, NASC_BENEFICIARIO =?, EMAIL_BENEFICIARIO =?, END_BENEFICIARIO =?, TRAT_BENEFICIARIO =?, STT_BENEFICIARIO =?, HIST_BENEFICIARIO =? where ID_BENEFICIARIO =?");
+                ("Update T_TDB_BENEFICIARIO set NOME_BENEFICIARIO =?, CPF_BENEFICIARIO =?, NASC_BENEFICIARIO =?, FONE_BENEFICIARIO =?, EMAIL_BENEFICIARIO =?, END_BENEFICIARIO =?, TRAT_BENEFICIARIO =?, STT_BENEFICIARIO =?, HIST_BENEFICIARIO =? where ID_BENEFICIARIO =?");
         stmt.setString(1, beneficiario.getNome());
         stmt.setString(2, beneficiario.getCpf());
         stmt.setDate(3, Date.valueOf(beneficiario.getDataNasc()));
-        stmt.setString(4, beneficiario.getEmail());
-        stmt.setString(5, beneficiario.getEndereco());
-        stmt.setString(6, beneficiario.getTratamentoSolicitado());
-        stmt.setString(7, beneficiario.getStatusVulnerabilidade());
-        stmt.setString(8, beneficiario.getHistoria());
+        stmt.setString(4, beneficiario.getTelefone());
+        stmt.setString(5, beneficiario.getEmail());
+        stmt.setString(6, beneficiario.getEndereco());
+        stmt.setString(7, beneficiario.getTratamentoSolicitado());
+        stmt.setString(8, beneficiario.getStatusVulnerabilidade());
+        stmt.setString(9, beneficiario.getHistoria());
+        stmt.setInt(10, beneficiario.getIdBeneficiario());
 
         stmt.executeUpdate();
         stmt.close();
@@ -75,11 +77,12 @@ public class BeneficiarioDao {
             objBeneficiario.setNome(rs.getString(2));
             objBeneficiario.setCpf(rs.getString(3));
             objBeneficiario.setDataNasc(rs.getDate(4).toLocalDate());
-            objBeneficiario.setEmail(rs.getString(5));
-            objBeneficiario.setEndereco(rs.getString(6));
-            objBeneficiario.setTratamentoSolicitado(rs.getString(7));
-            objBeneficiario.setStatusVulnerabilidade(rs.getString(8));
-            objBeneficiario.setHistoria(rs.getString(9));
+            objBeneficiario.setTelefone(rs.getString(5));
+            objBeneficiario.setEmail(rs.getString(6));
+            objBeneficiario.setEndereco(rs.getString(7));
+            objBeneficiario.setTratamentoSolicitado(rs.getString(8));
+            objBeneficiario.setStatusVulnerabilidade(rs.getString(9));
+            objBeneficiario.setHistoria(rs.getString(10));
 
             listaBeneficiario.add(objBeneficiario);
         }
@@ -100,11 +103,12 @@ public class BeneficiarioDao {
             objBeneficiario.setNome(rs.getString(2));
             objBeneficiario.setCpf(rs.getString(3));
             objBeneficiario.setDataNasc(rs.getDate(4).toLocalDate());
-            objBeneficiario.setEmail(rs.getString(5));
-            objBeneficiario.setEndereco(rs.getString(6));
-            objBeneficiario.setTratamentoSolicitado(rs.getString(7));
-            objBeneficiario.setStatusVulnerabilidade(rs.getString(8));
-            objBeneficiario.setHistoria(rs.getString(9));
+            objBeneficiario.setTelefone(rs.getString(5));
+            objBeneficiario.setEmail(rs.getString(6));
+            objBeneficiario.setEndereco(rs.getString(7));
+            objBeneficiario.setTratamentoSolicitado(rs.getString(8));
+            objBeneficiario.setStatusVulnerabilidade(rs.getString(9));
+            objBeneficiario.setHistoria(rs.getString(10));
         }
         return objBeneficiario;
     }

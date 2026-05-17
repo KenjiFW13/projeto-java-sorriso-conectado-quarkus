@@ -8,6 +8,7 @@ import jakarta.ws.rs.core.*;
 import jakarta.ws.rs.ext.Provider;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 @Provider
 
@@ -42,5 +43,12 @@ public class BeneficiarioResource {
     public Response atualizarRs(Beneficiario beneficiario, @PathParam("codigo") int codigo) throws SQLException, ClassNotFoundException {
         beneficiarioBO.atualizarBO(beneficiario);
         return Response.ok().build();
+    }
+
+    // Selecionar
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public ArrayList<Beneficiario> selecionarRs() throws SQLException, ClassNotFoundException {
+        return (ArrayList<Beneficiario>) beneficiarioBO.selecionarBO();
     }
 }

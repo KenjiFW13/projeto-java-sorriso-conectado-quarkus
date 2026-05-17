@@ -84,12 +84,14 @@ public class MenuBeneficiario {
         b.setIdBeneficiario(InputUtil.inteiro("ID do Beneficiário que deseja ATUALIZAR"));
 
         b.setNome(InputUtil.textoObrigatorio("Novo Nome"));
+        b.setCpf(InputUtil.textoObrigatorio("Novo CPF"));
         b.setEmail(InputUtil.textoObrigatorio("Novo E-mail"));
         b.setTelefone(InputUtil.textoObrigatorio("Novo Telefone"));
         b.setEndereco(InputUtil.textoObrigatorio("Novo Endereço"));
         b.setDataNasc(InputUtil.data("Nova Data de Nascimento (dd/mm/aaaa)"));
         b.setTratamentoSolicitado(InputUtil.textoObrigatorio("Novo Tratamento"));
         b.setStatusVulnerabilidade(InputUtil.textoObrigatorio("Novo Status"));
+        b.setHistoria(InputUtil.textoObrigatorio("Nova História"));
 
         String resultado = BeneficiarioService.atualizar(b);
         JOptionPane.showMessageDialog(null, resultado);
