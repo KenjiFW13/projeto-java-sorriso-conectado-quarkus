@@ -1,4 +1,4 @@
-package br.com.fiap;
+package br.com.fiap.resources;
 
 import br.com.fiap.bo.AtendimentoBO;
 import br.com.fiap.entities.Atendimento;
