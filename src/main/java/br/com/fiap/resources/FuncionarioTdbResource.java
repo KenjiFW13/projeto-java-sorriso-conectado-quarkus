@@ -1,7 +1,6 @@
 package br.com.fiap.resources;
 
 import br.com.fiap.bo.FuncionarioTdbBO;
-import br.com.fiap.entities.ClinicaEmpresa;
 import br.com.fiap.entities.FuncionarioTdb;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;

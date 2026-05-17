@@ -1,7 +1,6 @@
 package br.com.fiap.resources;
 
 import br.com.fiap.bo.DentistaBO;
-import br.com.fiap.entities.ClinicaEmpresa;
 import br.com.fiap.entities.Dentista;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;
