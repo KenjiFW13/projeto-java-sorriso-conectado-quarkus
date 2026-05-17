@@ -1,7 +1,6 @@
 package br.com.fiap.bo;
 
 import br.com.fiap.dao.ClinicaEmpresaDao;
-import br.com.fiap.entities.Beneficiario;
 import br.com.fiap.entities.ClinicaEmpresa;
 
 import java.sql.SQLException;
