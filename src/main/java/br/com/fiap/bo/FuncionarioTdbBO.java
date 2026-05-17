@@ -4,6 +4,7 @@ import br.com.fiap.dao.FuncionarioTdbDao;
 import br.com.fiap.entities.FuncionarioTdb;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class FuncionarioTdbBO {
 
@@ -13,5 +14,29 @@ public class FuncionarioTdbBO {
     public void inserirBO(FuncionarioTdb funcionarioTdb) throws SQLException, ClassNotFoundException {
         FuncionarioTdbDao funcionarioTdbDAO = new FuncionarioTdbDao();
         funcionarioTdbDAO.inserir(funcionarioTdb);
+    }
+
+    // Deletar
+    public void deletarBO(int codigo) throws SQLException, ClassNotFoundException {
+        FuncionarioTdbDao funcionarioTdbDAO = new FuncionarioTdbDao();
+        funcionarioTdbDao.deletar(codigo);
+    }
+
+    // Update
+    public void atualizarBO(FuncionarioTdb funcionarioTdb) throws SQLException, ClassNotFoundException {
+        FuncionarioTdbDao funcionarioTdbDAO = new FuncionarioTdbDao();
+        funcionarioTdbDao.atualizar(funcionarioTdb);
+    }
+
+    // Select
+    public ArrayList<FuncionarioTdb> selecionarBO() throws SQLException, ClassNotFoundException {
+        funcionarioTdbDao = new FuncionarioTdbDao();
+        return (ArrayList<FuncionarioTdb>) funcionarioTdbDao.selecionar();
+    }
+
+    // Select / Código
+    public FuncionarioTdb selecionarPorCodigoBo(int codigo) throws SQLException, ClassNotFoundException {
+        FuncionarioTdbDao funcionarioTdbDAO = new FuncionarioTdbDao();
+        return funcionarioTdbDao.selecionarPorCodigo(codigo);
     }
 }
