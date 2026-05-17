@@ -21,7 +21,23 @@ public class AtendimentoResource {
     // Inserir
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response inserirRs(Atendimento atendimento, ClinicaEmpresa clinicaEmpresa, Dentista dentista, Beneficiario beneficiario, @Context UriInfo uriInfo) throws SQLException, ClassNotFoundException {
+    // Aqui eu precisava passar como parâmetro os ids a serem relacionados na hora de realizar um atendimento
+    // (O sistema pede o id do dentista, da clinica e do beneficiario para conseguir criar um atendimento)
+    // E o metodo não aceita tantos parâmetros, por isso o @QueryParam
+    public Response inserirRs(Atendimento atendimento,
+                              @QueryParam("idClinica") int idClinica,
+                              @QueryParam("idDentista") int idDentista,
+                              @QueryParam("idBeneficiario") int idBeneficiario,
+                              @Context UriInfo uriInfo) throws SQLException, ClassNotFoundException {
+        ClinicaEmpresa clinicaEmpresa = new ClinicaEmpresa();
+        clinicaEmpresa.setIdEmpresa(idClinica);
+
+        Dentista dentista = new Dentista();
+        dentista.setIdDentista(idDentista);
+
+        Beneficiario beneficiario = new Beneficiario();
+        beneficiario.setIdBeneficiario(idBeneficiario);
+
         atendimentoBO.inserirBo(atendimento, clinicaEmpresa, dentista, beneficiario);
         UriBuilder builder = uriInfo.getAbsolutePathBuilder();
         builder.path(Integer.toString(atendimento.getIdAtendimento()));
@@ -36,4 +52,6 @@ public class AtendimentoResource {
         atendimentoBO.DefinirPrioridadeBo(atendimento);
         return Response.ok().build();
     }
+
+
 }
