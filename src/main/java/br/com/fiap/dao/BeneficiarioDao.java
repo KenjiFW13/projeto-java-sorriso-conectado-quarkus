@@ -110,6 +110,10 @@ public class BeneficiarioDao {
             objBeneficiario.setStatusVulnerabilidade(rs.getString(9));
             objBeneficiario.setHistoria(rs.getString(10));
         }
+
+        rs.close();
+        stmt.close();
+
         return objBeneficiario;
     }
 }

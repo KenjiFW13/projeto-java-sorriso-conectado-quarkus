@@ -51,4 +51,12 @@ public class BeneficiarioResource {
     public ArrayList<Beneficiario> selecionarRs() throws SQLException, ClassNotFoundException {
         return (ArrayList<Beneficiario>) beneficiarioBO.selecionarBO();
     }
+
+    // Selecionar por código
+    @GET
+    @Path("/{codigo}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Beneficiario selecionarPorCodigoRs(@PathParam("codigo") int codigo) throws SQLException, ClassNotFoundException {
+        return (Beneficiario) beneficiarioBO.selecionarPorCodigoBo(codigo);
+    }
 }
