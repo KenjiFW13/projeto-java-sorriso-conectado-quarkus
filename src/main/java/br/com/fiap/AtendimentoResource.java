@@ -53,5 +53,11 @@ public class AtendimentoResource {
         return Response.ok().build();
     }
 
-
+    @PUT
+    @Path("/{codigo}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response atualizarObservacoesRs(Atendimento atendimento, @PathParam("codigo") int codigo) throws SQLException, ClassNotFoundException {
+        atendimentoBO.AtualizarObservacoesBo(atendimento);
+        return Response.ok().build();
+    }
 }
