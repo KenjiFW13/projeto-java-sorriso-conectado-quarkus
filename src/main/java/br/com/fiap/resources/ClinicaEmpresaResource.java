@@ -1,4 +1,4 @@
-package br.com.fiap;
+package br.com.fiap.resources;
 
 import br.com.fiap.bo.ClinicaEmpresaBO;
 import br.com.fiap.entities.ClinicaEmpresa;
