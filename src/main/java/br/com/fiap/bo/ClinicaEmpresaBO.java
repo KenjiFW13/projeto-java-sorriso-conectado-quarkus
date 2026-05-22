@@ -19,6 +19,10 @@ public class ClinicaEmpresaBO {
             return "E-mail inválido!";
         }
 
+        if (!ValidatorUtil.validarCnpj(clinicaEmpresa.getCnpj())){
+            return "CNPJ inválido!";
+        }
+
         return clinicaEmpresaDAO.inserir(clinicaEmpresa);
     }
 

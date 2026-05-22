@@ -16,6 +16,12 @@ public class ValidatorUtil {
         return apenasNumeros.length() == 7;
     }
 
+    public static boolean validarCnpj(String cnpj){
+        if (cnpj == null) return false;
+        String apenasNumeros = cnpj.replace(".", "").replace("-", "").replace("/", "");
+        return apenasNumeros.length() == 14;
+    }
+
     private static final String EMAIL_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
     private static final Pattern PATTERN = Pattern.compile(EMAIL_REGEX);
 
