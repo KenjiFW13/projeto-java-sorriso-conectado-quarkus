@@ -59,4 +59,13 @@ public class BeneficiarioResource {
     public Beneficiario selecionarPorCodigoRs(@PathParam("codigo") int codigo) throws SQLException, ClassNotFoundException {
         return (Beneficiario) beneficiarioBO.selecionarPorCodigoBo(codigo);
     }
+
+    // Exibir História
+    @GET
+    @Path("/{codigo}/historia")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response exibirHistoriaRs(@PathParam("codigo") int codigo) throws SQLException {
+        String historia = beneficiarioBO.exibirHistoria(codigo);
+        return Response.ok(historia).build();
+    }
 }
