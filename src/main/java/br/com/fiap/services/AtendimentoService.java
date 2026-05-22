@@ -25,6 +25,8 @@ public class AtendimentoService {
     public AtendimentoService() throws SQLException, ClassNotFoundException {
     }
 
+    // Só deixei aqui pois o TesteInserirAtendimento usa esse método
+
     public static String iniciarAtendimento(Atendimento atendimento, ClinicaEmpresa clinicaEmpresa, Dentista dentista, Beneficiario beneficiario) throws SQLException {
             if (atendimento.getCustoAgendamento() < 0) {
                 return "Erro: O custo do agendamento não pode ser negativo!";
@@ -48,26 +50,26 @@ public class AtendimentoService {
             }
             return dao.inserir(atendimento, clinicaEmpresa, dentista, beneficiario);
     }
-
-    // 2. Definir Prioridade
-    public static String definirPrioridade(Atendimento atendimento) throws SQLException {
-        if (atendimento.getPrioridade() == null || atendimento.getPrioridade().isEmpty()) {
-            return "Erro: A prioridade não pode ser vazia!";
-        }
-        return dao.definirPrioridade(atendimento);
-    }
-
-    // 3. Atualizar Observações
-    public static String atualizarObservacoes(Atendimento atendimento) throws SQLException {
-        return dao.atualizarObservacoes(atendimento);
-    }
-
-    // 4. Selecionar Atendimento
-    public static String selecionarAtendimento(int idAtendimento) throws SQLException {
-        if (idAtendimento <= 0) {
-            return "Erro: ID de atendimento inválido!";
-        }
-        // Supondo que seu DAO retorna uma String formatada ou o objeto Atendimento
-        return String.valueOf(dao.selecionarPorCodigo(idAtendimento));
-    }
+//
+//    // 2. Definir Prioridade
+//    public static String definirPrioridade(Atendimento atendimento) throws SQLException {
+//        if (atendimento.getPrioridade() == null || atendimento.getPrioridade().isEmpty()) {
+//            return "Erro: A prioridade não pode ser vazia!";
+//        }
+//        return dao.definirPrioridade(atendimento);
+//    }
+//
+//    // 3. Atualizar Observações
+//    public static String atualizarObservacoes(Atendimento atendimento) throws SQLException {
+//        return dao.atualizarObservacoes(atendimento);
+//    }
+//
+//    // 4. Selecionar Atendimento
+//    public static String selecionarAtendimento(int idAtendimento) throws SQLException {
+//        if (idAtendimento <= 0) {
+//            return "Erro: ID de atendimento inválido!";
+//        }
+//        // Supondo que seu DAO retorna uma String formatada ou o objeto Atendimento
+//        return String.valueOf(dao.selecionarPorCodigo(idAtendimento));
+//    }
 }

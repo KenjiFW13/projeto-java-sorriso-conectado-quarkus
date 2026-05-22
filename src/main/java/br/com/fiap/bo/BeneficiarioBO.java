@@ -18,6 +18,15 @@ public class BeneficiarioBO {
         if (!ValidatorUtil.validarCpf(beneficiario.getCpf())){
             return "Erro: Cpf inválido!";
         }
+
+        if (beneficiario.getIdBeneficiario() <= 0) {
+            return "Erro: O ID do beneficiário deve ser maior que zero!";
+        }
+
+        if (beneficiario.getTratamentoSolicitado() == null || beneficiario.getTratamentoSolicitado().isEmpty()) {
+            return "Erro: O tratamento solicitado precisa ser informado!";
+        }
+
         return beneficiarioDAO.inserir(beneficiario);
     }
 
