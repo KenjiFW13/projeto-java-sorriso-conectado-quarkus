@@ -66,4 +66,19 @@ public class BeneficiarioBO {
         beneficiarioDao = new BeneficiarioDao();
         return beneficiarioDao.selecionarPorCodigo(codigo);
     }
+
+    // Exbir história
+    public String exibirHistoria(int id) throws SQLException {
+        Beneficiario beneficiario = beneficiarioDao.selecionarPorCodigo(id);
+
+        if (beneficiario == null) {
+            return "Beneficiário não encontrado!";
+        }
+
+        if (beneficiario.getHistoria() == null || beneficiario.getHistoria().isEmpty()) {
+            return "Beneficiário sem história cadastrada!";
+        }
+
+        return "--- História do Beneficiário: " + beneficiario.getNome() + ": \n" + beneficiario.getHistoria();
+    }
 }
