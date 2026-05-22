@@ -2,6 +2,7 @@ package br.com.fiap.bo;
 
 import br.com.fiap.dao.VoluntarioDao;
 import br.com.fiap.entities.Voluntario;
+import br.com.fiap.utils.ValidatorUtil;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,9 +12,18 @@ public class VoluntarioBO {
     VoluntarioDao voluntarioDao;
 
     // Inserir
-    public void inserirBO(Voluntario voluntario) throws SQLException, ClassNotFoundException {
+    public String inserirBO(Voluntario voluntario) throws SQLException, ClassNotFoundException {
         VoluntarioDao voluntarioDAO = new VoluntarioDao();
-        voluntarioDAO.inserir(voluntario);
+
+        if (!ValidatorUtil.validarCpf(voluntario.getCpf())){
+            return "Erro: Cpf inválido!";
+        }
+
+        if (!ValidatorUtil.validarEmail(voluntario.getEmail())){
+            return "E-mail inválido!";
+        }
+
+        return voluntarioDAO.inserir(voluntario);
     }
 
     // Deletar
@@ -23,9 +33,18 @@ public class VoluntarioBO {
     }
 
     // Update
-    public void atualizarBO(Voluntario voluntario) throws SQLException, ClassNotFoundException {
+    public String atualizarBO(Voluntario voluntario) throws SQLException, ClassNotFoundException {
         VoluntarioDao voluntarioDAO = new VoluntarioDao();
-        voluntarioDao.atualizar(voluntario);
+
+        if (!ValidatorUtil.validarCpf(voluntario.getCpf())){
+            return "Erro: Cpf inválido!";
+        }
+
+        if (!ValidatorUtil.validarEmail(voluntario.getEmail())){
+            return "E-mail inválido!";
+        }
+
+        return voluntarioDao.atualizar(voluntario);
     }
 
     // Select

@@ -27,6 +27,10 @@ public class BeneficiarioBO {
             return "Erro: O tratamento solicitado precisa ser informado!";
         }
 
+        if (!ValidatorUtil.validarEmail(beneficiario.getEmail())){
+            return "E-mail inválido!";
+        }
+
         return beneficiarioDAO.inserir(beneficiario);
     }
 
@@ -42,6 +46,10 @@ public class BeneficiarioBO {
 
         if (!ValidatorUtil.validarCpf(beneficiario.getCpf())){
             return "Erro: Cpf inválido!";
+        }
+
+        if (!ValidatorUtil.validarEmail(beneficiario.getEmail())){
+            return "E-mail inválido!";
         }
 
         return beneficiarioDAO.atualizar(beneficiario);

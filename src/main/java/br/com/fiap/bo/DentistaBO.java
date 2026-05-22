@@ -23,6 +23,10 @@ public class DentistaBO {
             return "CPF inválido!";
         }
 
+        if (!ValidatorUtil.validarEmail(dentista.getEmail())){
+            return "E-mail inválido!";
+        }
+
         return dentistaDAO.inserir(dentista);
     }
 

@@ -2,6 +2,7 @@ package br.com.fiap.bo;
 
 import br.com.fiap.dao.FuncionarioTdbDao;
 import br.com.fiap.entities.FuncionarioTdb;
+import br.com.fiap.utils.ValidatorUtil;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,9 +12,18 @@ public class FuncionarioTdbBO {
     FuncionarioTdbDao funcionarioTdbDao;
 
     // Inserir
-    public void inserirBO(FuncionarioTdb funcionarioTdb) throws SQLException, ClassNotFoundException {
+    public String inserirBO(FuncionarioTdb funcionarioTdb) throws SQLException, ClassNotFoundException {
         FuncionarioTdbDao funcionarioTdbDAO = new FuncionarioTdbDao();
-        funcionarioTdbDAO.inserir(funcionarioTdb);
+
+        if (!ValidatorUtil.validarEmail(funcionarioTdb.getEmail())){
+            return "E-mail inválido!";
+        }
+
+        if (!ValidatorUtil.validarCpf(funcionarioTdb.getCpf())){
+            return "Erro: Cpf inválido!";
+        }
+
+        return funcionarioTdbDAO.inserir(funcionarioTdb);
     }
 
     // Deletar
@@ -23,9 +33,18 @@ public class FuncionarioTdbBO {
     }
 
     // Update
-    public void atualizarBO(FuncionarioTdb funcionarioTdb) throws SQLException, ClassNotFoundException {
+    public String atualizarBO(FuncionarioTdb funcionarioTdb) throws SQLException, ClassNotFoundException {
         FuncionarioTdbDao funcionarioTdbDAO = new FuncionarioTdbDao();
-        funcionarioTdbDao.atualizar(funcionarioTdb);
+
+        if (!ValidatorUtil.validarEmail(funcionarioTdb.getEmail())){
+            return "E-mail inválido!";
+        }
+
+        if (!ValidatorUtil.validarCpf(funcionarioTdb.getCpf())){
+            return "Erro: Cpf inválido!";
+        }
+
+        return funcionarioTdbDao.atualizar(funcionarioTdb);
     }
 
     // Select
