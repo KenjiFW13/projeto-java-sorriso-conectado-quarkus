@@ -13,15 +13,42 @@ public class AtendimentoBO {
     AtendimentoDao atendimentoDao;
 
     // Inserir
-    public void inserirBo(Atendimento atendimento, ClinicaEmpresa clinicaEmpresa, Dentista dentista, Beneficiario beneficiario) throws SQLException, ClassNotFoundException {
+    public String inserirBo(Atendimento atendimento, ClinicaEmpresa clinicaEmpresa, Dentista dentista, Beneficiario beneficiario) throws SQLException, ClassNotFoundException {
         AtendimentoDao atendimentoDAO = new AtendimentoDao();
-        atendimentoDao.inserir(atendimento, clinicaEmpresa, dentista, beneficiario);
+
+        if (atendimento.getCustoAgendamento() < 0) {
+            return "Erro: O custo do agendamento não pode ser negativo!";
+        }
+
+        if (clinicaEmpresa.getIdEmpresa() < 0) {
+            return "Erro: Id da Empresa inválido ou não informado!";
+        }
+
+        if (dentista.getIdDentista() < 0) {
+            return "Erro: Id do Dentista inválido ou não informado!";
+        }
+
+        if (beneficiario.getIdBeneficiario() < 0) {
+            return "Erro: Id do Beneficiário inválido ou não informado!";
+        }
+
+        if (atendimento.getStatusAgendamento() == null ||
+                atendimento.getStatusAgendamento().isEmpty()) {
+            atendimento.setStatusAgendamento("Novo");
+        }
+
+        return atendimentoDao.inserir(atendimento, clinicaEmpresa, dentista, beneficiario);
     }
 
     // DefinirPrioridade
-    public void DefinirPrioridadeBo(Atendimento atendimento) throws SQLException, ClassNotFoundException {
+    public String DefinirPrioridadeBo(Atendimento atendimento) throws SQLException, ClassNotFoundException {
         AtendimentoDao atendimentoDAO = new AtendimentoDao();
-        atendimentoDao.definirPrioridade(atendimento);
+
+        if (atendimento.getPrioridade() == null || atendimento.getPrioridade().isEmpty()) {
+            return "Erro: A prioridade não pode ser vazia!";
+        }
+
+        return atendimentoDao.definirPrioridade(atendimento);
     }
 
     // AtualizarObservacoes
