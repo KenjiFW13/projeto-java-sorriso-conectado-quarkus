@@ -2,6 +2,7 @@ package br.com.fiap.bo;
 
 import br.com.fiap.dao.DentistaDao;
 import br.com.fiap.entities.Dentista;
+import br.com.fiap.utils.ValidatorUtil;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,9 +12,18 @@ public class DentistaBO {
     static DentistaDao dentistaDao;
 
     // Inserir
-    public void inserirBO(Dentista dentista) throws SQLException, ClassNotFoundException {
+    public String inserirBO(Dentista dentista) throws SQLException, ClassNotFoundException {
         DentistaDao dentistaDAO = new DentistaDao();
-        dentistaDAO.inserir(dentista);
+
+        if (!ValidatorUtil.validarCro(dentista.getCro())){
+            return "CRO inválido!";
+        }
+
+        if (!ValidatorUtil.validarCpf(dentista.getCpf())){
+            return "CPF inválido!";
+        }
+
+        return dentistaDAO.inserir(dentista);
     }
 
     // Deletar
@@ -23,9 +33,18 @@ public class DentistaBO {
     }
 
     // Update
-    public static void atualizarBO(Dentista dentista) throws SQLException, ClassNotFoundException {
+    public static String atualizarBO(Dentista dentista) throws SQLException, ClassNotFoundException {
         DentistaDao dentistaDAO = new DentistaDao();
-        dentistaDao.atualizar(dentista);
+
+        if (!ValidatorUtil.validarCro(dentista.getCro())){
+            return "CRO inválido!";
+        }
+
+        if (!ValidatorUtil.validarCpf(dentista.getCpf())){
+            return "CPF inválido!";
+        }
+
+        return dentistaDao.atualizar(dentista);
     }
 
     // Select

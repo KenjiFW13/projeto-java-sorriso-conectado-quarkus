@@ -2,6 +2,7 @@ package br.com.fiap.main;
 
 import br.com.fiap.dao.DentistaDao;
 import br.com.fiap.entities.Dentista;
+import br.com.fiap.utils.ValidatorUtil;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -68,12 +69,12 @@ public class TesteInserirDentista {
             cpfDigitado = textoObrigatorio("Cpf do Dentista (Apenas números)");
 
             // 2. Valida a regra de negócio (11 dígitos)
-            if (!objDentista.validarCpf(cpfDigitado)) {
+            if (!ValidatorUtil.validarCpf(cpfDigitado)) {
                 JOptionPane.showMessageDialog(null, "CPF inválido! O CPF deve conter exatamente 11 números.");
             }
 
             // 3. Repete enquanto o CPF for inválido
-        } while (!objDentista.validarCpf(cpfDigitado));
+        } while (!ValidatorUtil.validarCpf(cpfDigitado));
 
         // 4. Só chega aqui se o CPF for válido
         objDentista.setCpf(cpfDigitado);

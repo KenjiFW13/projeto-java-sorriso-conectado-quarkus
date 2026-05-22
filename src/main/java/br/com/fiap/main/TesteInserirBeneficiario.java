@@ -2,6 +2,7 @@ package br.com.fiap.main;
 
 import br.com.fiap.dao.BeneficiarioDao;
 import br.com.fiap.entities.Beneficiario;
+import br.com.fiap.utils.ValidatorUtil;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -67,12 +68,12 @@ public class TesteInserirBeneficiario {
             cpfDigitado = textoObrigatorio("Cpf do Voluntário (Apenas números)");
 
             // 2. Valida a regra de negócio (11 dígitos)
-            if (!objBeneficiario.validarCpf(cpfDigitado)) {
+            if (!ValidatorUtil.validarCpf(cpfDigitado)) {
                 JOptionPane.showMessageDialog(null, "CPF inválido! O CPF deve conter exatamente 11 números.");
             }
 
             // 3. Repete enquanto o CPF for inválido
-        } while (!objBeneficiario.validarCpf(cpfDigitado));
+        } while (!ValidatorUtil.validarCpf(cpfDigitado));
 
         // 4. Só chega aqui se o CPF for válido
         objBeneficiario.setCpf(cpfDigitado);

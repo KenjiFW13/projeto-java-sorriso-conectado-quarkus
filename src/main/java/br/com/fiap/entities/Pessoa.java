@@ -79,12 +79,12 @@ public class Pessoa {
                 '}';
     }
 
-    public boolean validarCpf(String cpf){
-        if (cpf == null) return false;
-        // Se o cpf for vazio, retorna false
-        String apenasNumeros = cpf.replace(".", "").replace("-", "");
-        // Retira pontos e traços
-        return apenasNumeros.length() == 11;
-        // Só aceita tamanho = 11
-    }
+//    public boolean validarCpf(String cpf){
+//        if (cpf == null) return false;
+//        // Se o cpf for vazio, retorna false
+//        String apenasNumeros = cpf.replace(".", "").replace("-", "");
+//        // Retira pontos e traços
+//        return apenasNumeros.length() == 11;
+//        // Só aceita tamanho = 11
+//    }
 }

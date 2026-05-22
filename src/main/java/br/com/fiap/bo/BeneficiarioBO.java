@@ -2,6 +2,7 @@ package br.com.fiap.bo;
 
 import br.com.fiap.dao.BeneficiarioDao;
 import br.com.fiap.entities.Beneficiario;
+import br.com.fiap.utils.ValidatorUtil;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,9 +12,13 @@ public class BeneficiarioBO {
     BeneficiarioDao beneficiarioDao;
 
     // Inserir
-    public void inserirBO(Beneficiario beneficiario) throws SQLException, ClassNotFoundException {
+    public String inserirBO(Beneficiario beneficiario) throws SQLException, ClassNotFoundException {
         BeneficiarioDao beneficiarioDAO = new BeneficiarioDao();
-        beneficiarioDAO.inserir(beneficiario);
+
+        if (!ValidatorUtil.validarCpf(beneficiario.getCpf())){
+            return "Erro: Cpf inválido!";
+        }
+        return beneficiarioDAO.inserir(beneficiario);
     }
 
     // Deletar
@@ -23,9 +28,14 @@ public class BeneficiarioBO {
     }
 
     // Update
-    public void atualizarBO(Beneficiario beneficiario) throws SQLException, ClassNotFoundException {
+    public String atualizarBO(Beneficiario beneficiario) throws SQLException, ClassNotFoundException {
         BeneficiarioDao beneficiarioDAO = new BeneficiarioDao();
-        beneficiarioDAO.atualizar(beneficiario);
+
+        if (!ValidatorUtil.validarCpf(beneficiario.getCpf())){
+            return "Erro: Cpf inválido!";
+        }
+
+        return beneficiarioDAO.atualizar(beneficiario);
     }
 
     // Select
