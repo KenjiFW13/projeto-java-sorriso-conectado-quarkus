@@ -52,7 +52,7 @@ public class TesteInserirDentista {
         }
     }
 
-    static void main() throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
         Dentista objDentista = new Dentista();
 

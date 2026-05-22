@@ -52,7 +52,7 @@ public class TesteInserirVoluntario {
         }
     }
 
-    static void main() throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
         Voluntario objVoluntario = new Voluntario();
 

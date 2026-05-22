@@ -30,7 +30,7 @@ public class TesteSelecionarAtendimento {
         }
     }
 
-    static void main() throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         Atendimento objAtendimento = new Atendimento();
 
         AtendimentoDao dao = new AtendimentoDao();

@@ -38,7 +38,7 @@ public class TesteAtualizarObservacoes {
         }
     }
 
-    static void main() throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         // Instanciar objetos
         Atendimento objAtendimento = new Atendimento();
 

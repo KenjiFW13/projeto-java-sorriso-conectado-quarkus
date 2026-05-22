@@ -13,19 +13,19 @@ public class BeneficiarioBO {
     // Inserir
     public void inserirBO(Beneficiario beneficiario) throws SQLException, ClassNotFoundException {
         BeneficiarioDao beneficiarioDAO = new BeneficiarioDao();
-        beneficiarioDao.inserir(beneficiario);
+        beneficiarioDAO.inserir(beneficiario);
     }
 
     // Deletar
     public void deletarBO(int codigo) throws SQLException, ClassNotFoundException {
         BeneficiarioDao beneficiarioDAO = new BeneficiarioDao();
-        beneficiarioDao.deletar(codigo);
+        beneficiarioDAO.deletar(codigo);
     }
 
     // Update
     public void atualizarBO(Beneficiario beneficiario) throws SQLException, ClassNotFoundException {
         BeneficiarioDao beneficiarioDAO = new BeneficiarioDao();
-        beneficiarioDao.atualizar(beneficiario);
+        beneficiarioDAO.atualizar(beneficiario);
     }
 
     // Select
@@ -36,7 +36,7 @@ public class BeneficiarioBO {
 
     // Select / Código
     public Beneficiario selecionarPorCodigoBo(int codigo) throws SQLException, ClassNotFoundException {
-        BeneficiarioDao beneficiarioDAO = new BeneficiarioDao();
+        beneficiarioDao = new BeneficiarioDao();
         return beneficiarioDao.selecionarPorCodigo(codigo);
     }
 }

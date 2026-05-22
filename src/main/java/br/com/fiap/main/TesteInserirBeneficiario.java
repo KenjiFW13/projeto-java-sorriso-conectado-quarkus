@@ -51,7 +51,7 @@ public class TesteInserirBeneficiario {
         }
     }
 
-    static void main() throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
         Beneficiario objBeneficiario = new Beneficiario();
 

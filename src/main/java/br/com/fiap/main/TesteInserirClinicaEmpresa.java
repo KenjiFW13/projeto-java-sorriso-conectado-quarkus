@@ -38,7 +38,7 @@ public class TesteInserirClinicaEmpresa {
         }
     }
 
-    static void main() throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
         ClinicaEmpresa objClinicaEmpresa = new ClinicaEmpresa();
 
