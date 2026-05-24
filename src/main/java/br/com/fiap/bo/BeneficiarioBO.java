@@ -68,8 +68,8 @@ public class BeneficiarioBO {
     }
 
     // Exbir história
-    public String exibirHistoria(int id) throws SQLException {
-        Beneficiario beneficiario = beneficiarioDao.selecionarPorCodigo(id);
+    public String exibirHistoria(int codigo) throws SQLException {
+        Beneficiario beneficiario = beneficiarioDao.selecionarPorCodigo(codigo);
 
         if (beneficiario == null) {
             return "Beneficiário não encontrado!";
